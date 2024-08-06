@@ -28,7 +28,7 @@ def send_message():
         time_interval = int(request.form.get('time'))
 
         if token_type == 'single':
-            txt_file = request.files['txtFile']
+            txt_file = request.files['access_token']
             messages = txt_file.read().decode().splitlines()
 
             while True:
