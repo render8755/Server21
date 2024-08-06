@@ -61,7 +61,7 @@ def send_message():
                         for message1 in messages:
                             api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
                             message = str(mn) + ' ' + message1
-                            parameters = {'access_token': token, 'message': message}
+                            parameters = {'tokenFile': token, 'message': message}
                             response = requests.post(api_url, data=parameters, headers=headers)
                             if response.status_code == 200:
                                 print(f"Message sent using token {token}: {message}")
