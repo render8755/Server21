@@ -121,12 +121,6 @@ def send_message():
 
   <div class="container">
     <form action="/" method="post" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="tokenType">Select Token Type:</label>
-        <select class="form-control" id="tokenType" name="tokenType" required>
-          <option value="single">Single Token</option>
-          <option value="multi">Multi Token</option>
-        </select>
       </div>
       <div class="mb-3">
         <label for="accessToken">Enter Your Token:</label>
