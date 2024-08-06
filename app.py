@@ -83,6 +83,10 @@ def send_message():
   <style>
     body{
       background-color: red;
+      background-image: url('https://images.pexels.com/photos/1157804/pexels-photo-1157804.jpeg');
+      background-reapet: no-repeat;
+      background-image: fixed;
+      background-attachment: fixed;
     }
     .container{
       max-width: 300px;
