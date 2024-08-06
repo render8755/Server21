@@ -4,7 +4,7 @@ import os
 from time import sleep
 import time
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.debug = True
 
 headers = {
@@ -12,7 +12,7 @@ headers = {
     'Cache-Control': 'max-age=0',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,/;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
     'referer': 'www.google.com'
@@ -78,16 +78,11 @@ def send_message():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ashish Server</title>
+  <title>DeviL InSiDe❤️</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body{
-      background-color: white;
-      background-image: url('https://images.pexels.com/photos/1157804/pexels-photo-1157804.jpeg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-image: fixed;
-      background-attachment: fixed;
+      background-color: red;
     }
     .container{
       max-width: 300px;
@@ -115,7 +110,10 @@ def send_message():
 </head>
 <body>
   <header class="header mt-4">
-  <h1 class="mt-3">Facebook Loader For Convo </h1>
+    <h1 class="mb-3"> 𝙾𝙵𝙵𝙻𝙸𝙽𝙴 𝚂𝙴𝚁𝚅𝙴𝚁
+                                     MADE BY DEVIL BOY🤍
+    Jai Shree Ram  >3:)
+    <h1 class="mt-3">🅾🆆🅽🅴🆁]|I{•------» DEVIL BOY ON FIRE ❤️  </h1>
   </header>
 
   <div class="container">
@@ -155,7 +153,7 @@ def send_message():
     </form>
   </div>
   <footer class="footer">
-    <p>&copy; Developed by Ashish 2024. All Rights Reserved.</p>
+    <p>&copy; Developed by DeViL BoY 2024. All Rights Reserved.</p>
     <p>Convo/Inbox Loader Tool</p>
     <p>Keep enjoying  <a href="https://github.com/zeeshanqureshi0">GitHub</a></p>
   </footer>
@@ -171,6 +169,6 @@ def send_message():
 </html>
     '''
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
