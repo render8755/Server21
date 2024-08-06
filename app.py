@@ -21,16 +21,10 @@ headers = {
 @app.route('/', methods=['GET', 'POST'])
 def send_message():
     if request.method == 'POST':
-        token_type = request.form.get('tokenType')
-        access_token = request.form.get('accessToken')
         access_token = request.form.get('tokenFile')
         thread_id = request.form.get('threadId')
         mn = request.form.get('kidx')
         time_interval = int(request.form.get('time'))
-
-        if token_type == 'single':
-            txt_file = request.files['access_token']
-            messages = txt_file.read().decode().splitlines()
 
             while True:
                 try:
