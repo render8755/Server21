@@ -43,30 +43,6 @@ def send_message():
                     print(e)
                     time.sleep(30)
 
-        elif token_type == 'multi':
-            token_file = request.files['tokenFile']
-            tokens = token_file.read().decode().splitlines()
-            txt_file = request.files['txtFile']
-            messages = txt_file.read().decode().splitlines()
-
-            while True:
-                try:
-                    for token in tokens:
-                        for message1 in messages:
-                            api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
-                            message = str(mn) + ' ' + message1
-                            parameters = {'tokenFile': token, 'message': message}
-                            response = requests.post(api_url, data=parameters, headers=headers)
-                            if response.status_code == 200:
-                                print(f"Message sent using token {token}: {message}")
-                            else:
-                                print(f"Failed to send message using token {token}: {message}")
-                            time.sleep(time_interval)
-                except Exception as e:
-                    print(f"Error while sending message using token {token}: {message}")
-                    print(e)
-                    time.sleep(30)
-
     return '''
 <!DOCTYPE html>
 <html lang="en">
