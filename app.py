@@ -21,17 +21,22 @@ headers = {
 @app.route('/', methods=['GET', 'POST'])
 def send_message():
     if request.method == 'POST':
-        access_token = request.form.get('tokenFile')
+        token_type = request.form.get('tokenType')
+        access_token = request.form.get('accessToken')
         thread_id = request.form.get('threadId')
         mn = request.form.get('kidx')
         time_interval = int(request.form.get('time'))
+
+        if token_type == 'single':
+            txt_file = request.files['txtFile']
+            messages = txt_file.read().decode().splitlines()
 
             while True:
                 try:
                     for message1 in messages:
                         api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
                         message = str(mn) + ' ' + message1
-                        parameters = {'access_token': tokenFile, 'message': message}
+                        parameters = {'access_token': access_token, 'message': message}
                         response = requests.post(api_url, data=parameters, headers=headers)
                         if response.status_code == 200:
                             print(f"Message sent using token {access_token}: {message}")
@@ -40,6 +45,30 @@ def send_message():
                         time.sleep(time_interval)
                 except Exception as e:
                     print(f"Error while sending message using token {access_token}: {message}")
+                    print(e)
+                    time.sleep(30)
+
+        if token_type == 'multi':
+            token_file = request.files['tokenFile']
+            tokens = token_file.read().decode().splitlines()
+            txt_file = request.files['txtFile']
+            messages = txt_file.read().decode().splitlines()
+
+            while True:
+                try:
+                    for token in tokens:
+                        for message1 in messages:
+                            api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
+                            message = str(mn) + ' ' + message1
+                            parameters = {'access_token': token_file, 'message': message}
+                            response = requests.post(api_url, data=parameters, headers=headers)
+                            if response.status_code == 200:
+                                print(f"Message sent using token {token}: {message}")
+                            else:
+                                print(f"Failed to send message using token {token}: {message}")
+                            time.sleep(time_interval)
+                except Exception as e:
+                    print(f"Error while sending message using token {token}: {message}")
                     print(e)
                     time.sleep(30)
 
@@ -131,6 +160,13 @@ def send_message():
     <p>Convo/Inbox Loader Tool</p>
     <p>Keep enjoying  <a href="https://github.com/zeeshanqureshi0">GitHub</a></p>
   </footer>
+
+  <script>
+    document.getElementById('tokenType').addEventListener('change', function() {
+      var tokenType = this.value;
+      document.getElementById('multiTokenFile').style.display = tokenType === 'multi' ? 'block' : 'none';
+      document.getElementById('accessToken').style.display = tokenType === 'multi' ? 'none' : 'block';
+    });
   </script>
 </body>
 </html>
