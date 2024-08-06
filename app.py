@@ -78,11 +78,10 @@ def send_message():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeviL InSiDe❤️</title>
+  <title>Ashish</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body{
-      background-color: red;
       background-image: url('https://images.pexels.com/photos/1157804/pexels-photo-1157804.jpeg');
       background-reapet: no-repeat;
       background-image: fixed;
@@ -100,6 +99,7 @@ def send_message():
     .header{
       text-align: center;
       padding-bottom: 10px;
+      color: black;
     }
     .btn-submit{
       width: 100%;
@@ -114,10 +114,7 @@ def send_message():
 </head>
 <body>
   <header class="header mt-4">
-    <h1 class="mb-3"> 𝙾𝙵𝙵𝙻𝙸𝙽𝙴 𝚂𝙴𝚁𝚅𝙴𝚁
-                                     MADE BY DEVIL BOY🤍
-    Jai Shree Ram  >3:)
-    <h1 class="mt-3">🅾🆆🅽🅴🆁]|I{•------» DEVIL BOY ON FIRE ❤️  </h1>
+  <h1 class="mt-3">Facebook chat loader Tool</h1>
   </header>
 
   <div class="container">
