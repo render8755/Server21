@@ -84,7 +84,7 @@ def send_message():
     body{
       background-image: url('https://images.pexels.com/photos/1157804/pexels-photo-1157804.jpeg');
       background-reapet: no-repeat;
-      background-image: fixed;
+      background-size: cover;
       background-attachment: fixed;
     }
     .container{
