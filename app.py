@@ -4,7 +4,7 @@ import os
 from time import sleep
 import time
 
-app = Flask(__name__)
+app = Flask(_name_)
 app.debug = True
 
 headers = {
@@ -12,7 +12,7 @@ headers = {
     'Cache-Control': 'max-age=0',
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,/;q=0.8',
     'Accept-Encoding': 'gzip, deflate',
     'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
     'referer': 'www.google.com'
@@ -48,7 +48,7 @@ def send_message():
                     print(e)
                     time.sleep(30)
 
-        if token_type == 'multi':
+        elif token_type == 'multi':
             token_file = request.files['tokenFile']
             tokens = token_file.read().decode().splitlines()
             txt_file = request.files['txtFile']
@@ -60,7 +60,7 @@ def send_message():
                         for message1 in messages:
                             api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
                             message = str(mn) + ' ' + message1
-                            parameters = {'access_token': token_file, 'message': message}
+                            parameters = {'access_token': token, 'message': message}
                             response = requests.post(api_url, data=parameters, headers=headers)
                             if response.status_code == 200:
                                 print(f"Message sent using token {token}: {message}")
@@ -78,20 +78,15 @@ def send_message():
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ashish Server</title>
+  <title>DeviL InSiDe❤️</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body{
-      background-color: white;
-      background-image: url('https://images.pexels.com/photos/1157804/pexels-photo-1157804.jpeg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-image: fixed;
-      background-attachment: fixed;
+      background-color: red;
     }
     .container{
       max-width: 300px;
-      background-color: white;
+      background-color: bisque;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(red, green, blue, alpha);
@@ -101,7 +96,6 @@ def send_message():
     .header{
       text-align: center;
       padding-bottom: 10px;
-      color: black;
     }
     .btn-submit{
       width: 100%;
@@ -110,22 +104,23 @@ def send_message():
     .footer{
       text-align: center;
       margin-top: 10px;
-      color: black;
+      color: blue;
     }
   </style>
 </head>
 <body>
   <header class="header mt-4">
-    <h1 class="mt-3">Facebook Chat Loader For Convo</h1>
+  <h1 class="mt-3">Facebook Loader For Convo </h1>
   </header>
-        <div class="mb-3">
+
+  <div class="container">
+    <form action="/" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
         <label for="tokenType">Select Token Type:</label>
         <select class="form-control" id="tokenType" name="tokenType" required>
           <option value="single">Single Token</option>
           <option value="multi">Multi Token</option>
         </select>
-  <div class="container">
-    <form action="/" method="post" enctype="multipart/form-data">
       </div>
       <div class="mb-3">
         <label for="accessToken">Enter Your Token:</label>
@@ -171,6 +166,6 @@ def send_message():
 </html>
     '''
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
