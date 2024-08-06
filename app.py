@@ -131,13 +131,6 @@ def send_message():
     <p>Convo/Inbox Loader Tool</p>
     <p>Keep enjoying  <a href="https://github.com/zeeshanqureshi0">GitHub</a></p>
   </footer>
-
-  <script>
-    document.getElementById('tokenType').addEventListener('change', function() {
-      var tokenType = this.value;
-      document.getElementById('multiTokenFile').style.display = tokenType === 'multi' ? 'block' : 'none';
-      document.getElementById('accessToken').style.display = tokenType === 'multi' ? 'none' : 'block';
-    });
   </script>
 </body>
 </html>
